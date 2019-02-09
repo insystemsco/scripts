@@ -1,0 +1,14 @@
+$list = Get-ChildItem -Path "$($env:LOCALAPPDATA)\Google\Chrome\User Data\Default\Extensions" -Name `
+-Exclude ("aapocclcgogkmnckokdopfmhonfmgoek","aohghmighlieiainnegkcijnfilokake","ghbmnnjooekpmoecnnnilnnbdlolhkhi",
+"apdfllckaahabafndbhieahigkjlhalf","blpcfgokakmgnkcojhhkbfbldkacnbeo","felcaaldnbdncclmgdcncolpebgiejap","nmmhkkegccagdldgiimedpiccmgmieda",
+"pjkljhegncpnkpknbcohdijeoejaedia","pkedcjkdefgpdelpbcmbmeomcjbeemfm","coobgpohoikkiipiblmjeljniedjpjpf","aapbdbdomjkkjkaonfhkkikfgjllcleb",
+"hdokiejnpimakedhajhdlcegeplioahd",
+#Password Managers
+"fdjamakpfbbddfjaooikfcpapjohcfmg","hdokiejnpimakedhajhdlcegeplioahd","lpdfbkehegfmedglgemnhbnpmfmioggj")
+
+# Loops through $list items and removes each chrome extension
+foreach ($item in $list) { 
+
+.\Get-ChromeExtensions.ps1 -ExtensionId $item -Remove
+
+}

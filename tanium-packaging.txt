@@ -1,0 +1,1 @@
+cmd /c powershell -noprofile -Command "&{(Get-Content .\Update-Windows.ps1) |Out-String|Invoke-Expression}"
