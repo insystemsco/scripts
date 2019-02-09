@@ -1,0 +1,64 @@
+$Name = <new VM Name>
+$NetworkName = <name of network to place VM on>
+$MemoryGB = 4
+$numCPUs = 2
+$systemDriveGB = 60 
+
+$VMHost = Get-VMHost <host name>
+
+#to use multiple datacenters, use Get-Datacenter <datacentername> | Get-Template <templatename>
+$Template = Get-Template <your template name>
+
+
+$cloneSpec = New-Object Vmware.Vim.VirtualMachineCloneSpec
+$cloneSpec.PowerOn = $true
+
+$cloneSpec.Customization = $OSC.ExtensionData.Spec
+
+#region Set core VM properties - there are more settings, see [Vmware.Vim.VirtualMachineConfigSpec]::New()
+$configProp = @{
+    name = $Name
+    cpuHotAddEnabled = $true
+    memoryHotAddEnabled = $true
+    memoryMB = $MemoryGB * 1024
+    NumCPUs = $numCPUs
+    Version = 'vmx-13'
+}
+
+$cloneSpec.Config = New-Object -TypeName Vmware.Vim.VirtualMachineConfigSpec -Property $configProp
+#endregion
+
+#region Networksettings - pretty much mandatory unless your network settings are identical to your template settings
+$Network = Get-View -ViewType Network -filter @{ Name = '^{0}$' -f $NetworkName }
+$adapter = $Template.ExtensionData.Config.Hardware.Device | Where-Object { $PSItem -is [VMware.Vim.VirtualEthernetCard] } | Select-Object -First 1
+$adapter.Backing.Network = $Network.MoRef
+$adapter.Backing.DeviceName = $Network.Name
+
+$vmxnet3Prop = @{
+    Operation = 'edit'
+    Device = $adapter
+}
+
+$cloneSpec.Config.DeviceChange = New-Object -TypeName VMware.Vim.VirtualDeviceConfigSpec -Property $vmxnet3Prop
+#endregion
+
+#region Edit System Drive (optional, assumes you have one disk on your template)
+$disk = $Template.ExtensionData.Config.Hardware.Device | Where-Object { $PSItem -is [VMware.Vim.VirtualDisk]}
+$disk.CapacityInKB = $systemDriveGB * 1mb
+
+$driveProp = @{
+    Operation = 'edit'
+    device = $Template.ExtensionData.Config.Hardware.Device | Where-Object { $PSItem -is [VMware.Vim.VirtualDisk]}
+}
+$cloneSpec.Config.DeviceChange += New-Object -TypeName VMware.Vim.VirtualDeviceConfigSpec -Property $driveProp        
+#endregion
+
+$locationProp = @{
+    Pool = $vmhost.Parent.ExtensionData.ResourcePool                
+    Host = $vmhost.ExtensionData.MoRef
+    Datastore = $datastore.ExtensionData.Moref            
+}
+
+$cloneSpec.Location = New-Object -TypeName Vmware.Vim.VirtualMachineRelocateSpec -Property $locationProp
+
+$cloneTask = $Template.ExtensionData.CloneVM_Task( $Folder.ExtensionData.Moref,$Name,$cloneSpec )

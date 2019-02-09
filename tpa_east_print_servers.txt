@@ -1,0 +1,58 @@
+-------------------------------------------------------
+System Information for:  TAMP20PPCIPRNT1
+-------------------------------------------------------
+Manufacturer: VMware, Inc.
+Model: VMware Virtual Platform
+Serial Number: VMware-42 30 81 29 60 c4 1f 9b-62 88 1c 0a 7b 2e 04 be
+CPU: Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz Intel(R) Xeon(R) CPU E5-2680 v2 @
+ 2.80GHz
+HDD Capacity: 99.66GB
+HDD Space: 64.12 % Free (63.89GB)
+RAM: 4.00GB
+Operating System: Microsoft Windows Server 2012 R2 Datacenter, Service Pack: 0
+User logged In:
+Last Reboot: 10/17/2018 00:30:42
+
+-------------------------------------------------------
+System Information for:  ORLD71PBHPRINT1
+-------------------------------------------------------
+Manufacturer: VMware, Inc.
+Model: VMware Virtual Platform
+Serial Number: VMware-42 35 2e c8 59 17 54 8d-b0 b8 ee 8d 09 37 b5 04
+CPU: Intel(R) Xeon(R) CPU           X6550  @ 2.00GHz
+HDD Capacity: 99.66GB
+HDD Space: 74.59 % Free (74.34GB)
+RAM: 4.00GB
+Operating System: Microsoft Windows Server 2012 R2 Datacenter, Service Pack: 0
+User logged In:
+Last Reboot: 09/10/2018 11:19:45
+
+-------------------------------------------------------
+System Information for:  ORLD71PPRINT01
+-------------------------------------------------------
+Manufacturer: VMware, Inc.
+Model: VMware Virtual Platform
+Serial Number: VMware-42 1f e8 09 70 99 74 b2-1d 0b b2 9c 5d d1 25 af
+CPU: Intel(R) Xeon(R) CPU           X6550  @ 2.00GHz
+HDD Capacity: 69.90GB
+HDD Space: 46.63 % Free (32.59GB)
+RAM: 2.00GB
+Operating System: Microsoft Windows Server 2008 R2 Enterprise , Service Pack: 1
+User logged In:
+Last Reboot: 09/10/2018 11:28:00
+
+-------------------------------------------------------
+System Information for:  TAMP20PPRINT01
+-------------------------------------------------------
+Manufacturer: VMware, Inc.
+Model: VMware Virtual Platform
+Serial Number: VMware-42 38 0f f5 1b 62 72 4b-e9 8e cd bb 3d a2 e6 f0
+CPU: Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz
+HDD Capacity: 99.66GB
+HDD Space: 69.81 % Free (69.57GB)
+RAM: 8.00GB
+Operating System: Microsoft Windows Server 2012 R2 Datacenter, Service Pack: 0
+User logged In:
+Last Reboot: 10/17/2018 00:59:24
+
+-------------------------------------------------------
