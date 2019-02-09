@@ -1,0 +1,22 @@
+PS C:> Add-PSSnapin Quest.ActiveRoles.ADManagement
+
+ Get-QADComputer       Retrieve computer objects that match specified conditions.
+ Connect-QADService    Connect to AD domain controller (or AD LDS)
+ Disconnect-QADService Disconnect from an AD domain controller
+ Get-QADGroup          Retrieve groups that match specific conditions
+ Set-QADGroup          Modify attributes of group(s)
+ New-QADGroup          Create a new group
+ Get-QADGroupMember    Retrieve members of a group
+ Add-QADGroupMember    Add one or more objects to a group
+ Remove-QADGroupMember Remove one or more members from a group
+ Get-QADMemberOf       Retrieve group memberships of a particular object
+ Get-QADUser           Retrieve users that match specific conditions
+ Set-QADUser           Modify attributes of a user account
+ New-QADUser           Create a new user account
+ Enable-QADUser        Enable a user account
+ Move-QADObject        Move an object to a new OU
+ Remove-QADObject      Delete object(s) from Active Directory
+ Rename-QADObject      Rename an object in Active Directory
+ Disable-QADUser       Disable a user account
+ Unlock-QADUser        Unlock a user account
+ Deprovision-QADUser   Deprovision a user account in AD

@@ -1,23 +1,3 @@
-if ($env:PROCESSOR_ARCHITEW6432 -eq "AMD64") {
-
-  $x64PS=join-path $PSHome.tolower().replace("syswow64","sysnative").replace("system32","sysnative") powershell.exe
-
-  $cmd = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($myinvocation.MyCommand.Definition))
-
-  $out = & "$x64PS" -NonInteractive -NoProfile -ExecutionPolicy Bypass -EncodedCommand $cmd
-
-  $out
-
-  exit $lastexitcode
-
-}
-
- 
-
-# Write Script Below
-
-Write-Output ("Running Context: " + $env:PROCESSOR_ARCHITECTURE)
-
 #Requires -Module PSWindowsUpdate
 
 
